@@ -47,11 +47,14 @@ Số liệu thực nghiệm kiểm chứng claim trên frame `000011` của `dat
 
 ## 3. Failure case
 
-- **Khi nào fail:** Khi tăng `distance_threshold` lên cao (≥ 0.35 m - 0.40 m), thuật toán coi toàn bộ các gờ vỉa hè (curb), pallet nằm sát đất và phần cẳng chân người đi bộ là mặt đất, làm mất tới hơn 7,000 điểm của vật cản. Ngoài ra, khi mật độ chùm tia LiDAR loãng dần theo cự ly, tham số `eps` cố định của DBSCAN gây ra over-segmentation ở cự ly xa (> 25 m) khiến 1 vật thể bị vỡ vụn thành nhiều cụm nhỏ.
-- **Thuộc lớp debug nào:** Lớp **Geometry** (giả định mặt đất là mặt phẳng đơn vô hạn không khớp với độ mấp mô địa hình thực) và lớp **Preprocess** (chọn `distance_threshold` và `eps` cố định chưa thích ứng theo khoảng cách radial).
-- **Cách phát hiện khi chạy thật:** Theo dõi tỉ lệ `ground_inlier_ratio` và gradient độ cao $\Delta z$ cục bộ; nếu một vùng có điểm mặt đất biến thiên độ cao đột ngột > 15 cm thì phải cảnh báo có vật cản thấp thay vì gán toàn bộ làm mặt đất.
-
 ![failure](../results/figures/fail_01_ransac_low_obstacle.png)
+
+- **Trường hợp:** KITTI mini, frame `000011`, phát hiện vật cản sát mặt đất (gờ vỉa hè, pallet, phần chân người đi bộ ở cự ly 5–25 m) khi tăng ngưỡng `distance_threshold` của RANSAC từ 0.10 m lên 0.40 m.
+- **Quan sát:** Số điểm vật cản bị sụt giảm nghiêm trọng từ 14,028 điểm (ở ngưỡng 0.10 m) xuống còn 6,942 điểm (ở ngưỡng 0.40 m), làm mất 7,086 điểm vật cản (giảm hơn 50%). Toàn bộ phần chân của người đi bộ và gờ vỉa hè bị gán nhầm thành mặt đất phẳng.
+- **Nguyên nhân:** Mặt phẳng RANSAC gom tất cả các điểm có khoảng cách hình học nhỏ hơn ngưỡng `distance_threshold`. Khi đặt ngưỡng quá rộng (0.40 m), mọi vật cản có chiều cao dưới 40 cm đều bị coi là mấp mô của mặt đường và bị xóa sạch khỏi danh sách vật cản.
+- **Lớp debug:** **Geometry** (mô hình hình học mặt phẳng đơn không phân biệt được bề mặt đường với chân đế vật thể) và **Preprocess** (chọn tham số ngưỡng lọc tĩnh quá cao).
+- **Cách phát hiện khi chạy thật:** Giám sát liên tục chỉ số `ground_ratio_pct` (cảnh báo khi tỉ lệ điểm mặt đất vượt ngưỡng bất thường > 38%) và kiểm tra độ chênh lệch cao độ cục bộ $\Delta z$; nếu một vùng có $\Delta z > 15\text{ cm}$ mà vẫn bị gắn nhãn mặt đất thì hệ thống tự động phát cờ cảnh báo vật cản thấp.
+
 
 ## 4. Khuyến nghị nếu triển khai thật
 
