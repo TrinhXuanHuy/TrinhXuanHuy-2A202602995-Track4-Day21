@@ -1,0 +1,7 @@
+frame_id,method,ground_points,obstacle_points,num_clusters,time_ms,pros,cons
+000011,RANSAC Plane Fitting,14176,27339,93,678.0,Thích nghi với độ dốc/nghiêng của đường; không phụ thuộc độ cao xe tuyệt đối,Chậm hơn cắt cố định ~15ms do cần lặp tìm mặt phẳng
+000011,Fixed Height Cut (z <= -1.55m),10952,31235,126,1022.3,"Cực nhanh (O(1), < 1ms cho bước lọc)",Dễ nhầm mặt đường dốc thành vật cản giả; mất vật cản khi xe chúc mũi xuống
+000019,RANSAC Plane Fitting,13323,35371,94,2668.5,Thích nghi với độ dốc/nghiêng của đường; không phụ thuộc độ cao xe tuyệt đối,Chậm hơn cắt cố định ~15ms do cần lặp tìm mặt phẳng
+000019,Fixed Height Cut (z <= -1.55m),16383,36642,90,2056.9,"Cực nhanh (O(1), < 1ms cho bước lọc)",Dễ nhầm mặt đường dốc thành vật cản giả; mất vật cản khi xe chúc mũi xuống
+000025,RANSAC Plane Fitting,10320,39053,66,2692.4,Thích nghi với độ dốc/nghiêng của đường; không phụ thuộc độ cao xe tuyệt đối,Chậm hơn cắt cố định ~15ms do cần lặp tìm mặt phẳng
+000025,Fixed Height Cut (z <= -1.55m),12903,37540,67,1032.1,"Cực nhanh (O(1), < 1ms cho bước lọc)",Dễ nhầm mặt đường dốc thành vật cản giả; mất vật cản khi xe chúc mũi xuống

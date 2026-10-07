@@ -45,6 +45,19 @@ Số liệu thực nghiệm kiểm chứng claim trên frame `000011` của `dat
 
 ![demo](../results/figures/demo_obstacle_000011.png)
 
+### Bằng chứng Bonus (+9 điểm)
+
+- **[B1] So sánh 2 thuật toán lọc mặt đất (+4 điểm):** So sánh giữa RANSAC Plane Segmentation và Cắt cao độ cố định ($z \le -1.55\text{ m}$) trên các frame `000011`, `000019`, `000025` (file `results/bonus_b1_ground_comparison.csv`):
+  - *RANSAC Plane:* Tự động ước lượng góc dốc mặt đường ($ax+by+cz+d=0$), không bị lỗi vật cản giả khi xe lên/xuống dốc, nhận diện chuẩn 93–94 cụm vật cản ổn định.
+  - *Cắt cao độ cố định ($z \le -1.55\text{ m}$):* Rất nhanh (< 1 ms cho bước lọc) nhưng ở frame `000011` tạo ra tới 126 cụm do gờ đường và mặt dốc bị gán nhầm thành vật cản giả (false positives).
+  - *Ảnh so sánh trực quan:* `results/figures/bonus_b1_compare_ground.png`.
+
+- **[B3] Đo Latency p50/p95 đúng chuẩn (+2 điểm):** Đo lặp lại 20 lần (đã loại bỏ lần khởi động warm-up đầu tiên) trên cấu hình phần cứng: **CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz**, **RAM: 8.0 GB**, chạy trên CPU.
+  - Kết quả: **Latency p50 = 715.4 ms**, **Latency p95 = 1100.9 ms**. Dữ liệu chi tiết từng lần chạy lưu tại `results/bonus_b3_latency_raw.csv`.
+
+- **[B4] Tool CLI tái sử dụng linh hoạt (+3 điểm):** Module [src/obstacle_pipeline.py](file:///d:/TrinhXuanHuy-2A202602995-Track4-Day21/src/obstacle_pipeline.py) được thiết kế dạng command-line tool hoàn chỉnh với `argparse`, có `--help` chi tiết, có giá trị mặc định tối ưu, chạy được độc lập trên mọi frame KITTI hoặc dataset khác.
+
+
 ## 3. Failure case
 
 ![failure](../results/figures/fail_01_ransac_low_obstacle.png)

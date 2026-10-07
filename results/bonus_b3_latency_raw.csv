@@ -1,0 +1,22 @@
+run_iteration,latency_ms,is_warmup,cpu_hardware,ram_gb
+1,810.55,True,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+2,647.49,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+3,618.26,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+4,604.48,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+5,589.91,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+6,967.6,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+7,913.27,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+8,788.45,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+9,680.63,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+10,645.98,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+11,606.44,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+12,750.11,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+13,670.18,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+14,617.22,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+15,635.0,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+16,1392.89,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+17,872.15,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+18,850.23,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+19,798.02,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+20,771.02,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
+21,1085.51,False,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz,8.0 GB
